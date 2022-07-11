@@ -104,7 +104,7 @@ public class StaffServlet extends HttpServlet {
         String phone = req.getParameter("phone");
         String email = req.getParameter("email");
         int id = Integer.parseInt(req.getParameter("id"));
-        Department department = departmentDao.select(id);
+        Department department = (Department) departmentDao.select(id);
         Staff newStaff = new Staff(name, birthDay,address,phone,email, department);
         staffDao.creat(newStaff);
         RequestDispatcher dispatcher = req.getRequestDispatcher("Staff/create.jsp");
@@ -117,7 +117,7 @@ public class StaffServlet extends HttpServlet {
 
     public void showEdit(HttpServletRequest req,HttpServletResponse resp) throws IOException,SQLException,ServletException{
         int id = Integer.parseInt(req.getParameter("id"));
-        Staff staff = staffDao.select(id);
+        Staff staff = (Staff) staffDao.select(id);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("Staff/edit.jsp");
         req.setAttribute("staff", staff);
         requestDispatcher.forward(req, resp);
@@ -134,7 +134,7 @@ public class StaffServlet extends HttpServlet {
 
         String nameD = req.getParameter("department").replaceAll(" ", "");
 
-        Department department = departmentDao.selectName(nameD);
+        Department department = (Department) departmentDao.selectName(nameD);
 
         Staff book = new Staff(id,name,birthDay,address,phone,email,department);
         staffDao.edit(book);

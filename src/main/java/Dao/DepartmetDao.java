@@ -49,14 +49,14 @@ public class DepartmetDao implements CRUD<Department> {
 
             ResultSet rs = preparedStatement.executeQuery();
 
-            while (rs.next()) {
+            rs.next();
                 String classname = rs.getString("name");
                 int number = rs.getInt("number");
                 department = new Department(id,classname,number);
-            }
+
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return department;
     }

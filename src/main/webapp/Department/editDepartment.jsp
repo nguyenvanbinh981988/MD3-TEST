@@ -13,6 +13,11 @@
         <h2>
           Edit Department
         </h2>
+        <h2>
+        <a href="/Department?action=department">Show List Department</a>
+        <br>
+        <br>
+        </h2>
       </caption>
       <c:if test="${department != null}">
         <input type="hidden" name="id" value="<c:out value='${department.id}' />"/>

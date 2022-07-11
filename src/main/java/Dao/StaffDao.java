@@ -30,7 +30,7 @@ public class StaffDao implements CRUDSTUDENT<Staff> {
                 String address = resultSet.getString("address");
                 String phone = resultSet.getString("phone");
                 String email = resultSet.getString("email");
-                Department department = departmetDao.select(resultSet.getInt("id"));
+                Department department = departmetDao.select(resultSet.getInt("DepartmentId"));
 
                 staffs.add(new Model.Staff(id, name, birthDay, address, phone, email, department));
             }
@@ -57,7 +57,7 @@ public class StaffDao implements CRUDSTUDENT<Staff> {
             String phone = resultSet.getString("phone");
             String address = resultSet.getString("address");
             String email = resultSet.getString("email");
-            Department department = departmetDao.select(resultSet.getInt("id"));
+            Department department =(Department) departmetDao.select(resultSet.getInt("DepartmentId"));
 
             return new Staff(idS, name, birthDay, address, email, phone, department);
 

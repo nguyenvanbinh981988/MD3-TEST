@@ -141,7 +141,7 @@ public class StaffDao implements CRUDSTUDENT<Staff> {
                 String address = resultSet.getString("address");
                 String phone = resultSet.getString("phone");
                 String email = resultSet.getString("email");
-                Department department = departmetDao.select(resultSet.getInt("id"));
+                Department department = departmetDao.select(resultSet.getInt("DepartmentId"));
 
 
                 Staff staff = new Staff(ids, name1, birthDay, phone, address, email, department);
